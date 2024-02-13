@@ -97,7 +97,6 @@ public class TileManager : MonoBehaviour
 
     public bool Check()
     {
-
         bool result = false;
         List<Tile> identicalHorizontalTiles = new List<Tile>();
         for (int y = 0; y < YNumber; y++)

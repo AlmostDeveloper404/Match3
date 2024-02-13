@@ -22,13 +22,14 @@ namespace Main
         private LevelController _levelController;
         private SoundManager _soundManager;
         [SerializeField] private AudioClip _winSound;
-        [SerializeField] private AudioClip _lostSound;
 
         private float _timer;
         [SerializeField] private int _seconds;
         [SerializeField] private int _minutes;
 
         private TimeSpan _time;
+
+        private bool _isLevelCompleted = false;
 
         [Inject]
         private void Construct(LevelController levelController, SoundManager soundManager)
@@ -40,7 +41,6 @@ namespace Main
         private void OnEnable()
         {
             GameManager.OnLevelCompleted += LevelCompleted;
-            GameManager.OnLevelFailed += GameOver;
 
             PlayerResources.OnPlayerDataChanged += UpdateScoreAmount;
 
@@ -51,7 +51,6 @@ namespace Main
         private void OnDisable()
         {
             GameManager.OnLevelCompleted -= LevelCompleted;
-            GameManager.OnLevelFailed -= GameOver;
 
             PlayerResources.OnPlayerDataChanged -= UpdateScoreAmount;
 
@@ -73,6 +72,8 @@ namespace Main
 
         private void LaunchCountdown()
         {
+            if (_isLevelCompleted) return;
+
             _timer += Time.deltaTime;
             if (_timer > 1f)
             {
@@ -80,6 +81,7 @@ namespace Main
                 _time -= new TimeSpan(0, 0, 1);
                 if (_time <= TimeSpan.Zero)
                 {
+                    _isLevelCompleted = true;
                     GameManager.ChangeGameState(GameState.LevelCompleted);
                 }
                 _timerText.text = $" {_time.Minutes.ToString("00")}:{_time.Seconds.ToString("00")}";
@@ -93,18 +95,9 @@ namespace Main
 
         private void LevelCompleted()
         {
-            _scoreText.text = $"+{PlayerResources.GetLevelMoney}";
+            _scoreText.text = $"{PlayerResources.GetLevelMoney}";
             _soundManager.PlaySound(_winSound);
             _resultText.text = "WIN!";
-            _endPanalAnimator.SetTrigger("Finish");
-        }
-
-        private void GameOver()
-        {
-            _scoreText.text = $"+{PlayerResources.GetLevelMoney}";
-            _soundManager.PlaySound(_lostSound);
-            _loadNextButton.gameObject.SetActive(false);
-            _resultText.text = "LOST!";
             _endPanalAnimator.SetTrigger("Finish");
         }
     }

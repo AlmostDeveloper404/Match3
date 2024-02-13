@@ -613,7 +613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 90
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e68157815a308644b716bfd211ab0e6, type: 2}
   m_sharedMaterial: {fileID: -8116510539901339821, guid: 1e68157815a308644b716bfd211ab0e6, type: 2}
@@ -1400,7 +1400,6 @@ MonoBehaviour:
   _restartButton: {fileID: 4845126256265182149}
   _loadNextButton: {fileID: 5479174828812653738}
   _endPanalAnimator: {fileID: 859880174268537373}
-  _winSound: {fileID: 0}
-  _lostSound: {fileID: 0}
+  _winSound: {fileID: 8300000, guid: 76425a5814fdc514e9dfdbbb8a558c57, type: 3}
   _seconds: 0
   _minutes: 1

@@ -94,6 +94,8 @@ MonoBehaviour:
   Y: 1
   Fruit: {fileID: 0}
   DestroyFlag: 0
+  _destroyFruitsSound: {fileID: 8300000, guid: c82c80d3fc628a74a8e4b50eb816c8a8, type: 3}
+  _scoreForCell: 10
 --- !u!1 &8237993200449891623
 GameObject:
   m_ObjectHideFlags: 0

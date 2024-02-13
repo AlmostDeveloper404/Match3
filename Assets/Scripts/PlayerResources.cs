@@ -28,6 +28,7 @@ namespace Main
         public static void AddLevelMoney(int amount)
         {
             _moneyAmountOnLevel += amount;
+            OnPlayerDataChanged?.Invoke();
         }
 
         public static void ResetMoneyOnLevel() => _moneyAmountOnLevel = 0;
