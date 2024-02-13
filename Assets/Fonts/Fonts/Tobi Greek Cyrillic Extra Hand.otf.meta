@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: ac2bc990d9c74f04aa3a4f7d6c231eb8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Tobi Greek Cyrillic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 64662155640b67c498d2092f9a18fbbf, type: 3}
+  - {fileID: 12800000, guid: 2c0886f9f7b3cac42920e51e51d3e1a5, type: 3}
+  - {fileID: 12800000, guid: db3040dd42d3d4e49bb0e8e3eef3a1f9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
